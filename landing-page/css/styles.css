@@ -65,20 +65,57 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
-#navbar__list {
+.navbar_TOP {
+    overflow:hidden;
+    background-color: aqua;
+  }
+  
+  .navbar_TOP li {
+    float: left;
     display: block;
-    list-style-type: none;
-    font-size: larger;
-    font-weight: bold;
-    float:left;
-    
-   
-}
-#navbar__list li {
-    display:inline-block;
-    padding: 10px 10px;
+    color:blue;
     text-align: center;
-}
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  
+  .navbar_TOP li:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  
+  .navbar_TOP a.icon {
+    display: none;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight:bold;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .navbar_TOP  :not(:first-child) {display: none;}
+    .navbar_TOP a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .navbar_TOP.responsive {position: relative;}
+    .navbar_TOP.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 30px;
+    }
+    .navbar_TOP.responsive li {
+      float: none;
+      display: block;  /*for phones and tablet change list from inline-block(coloums) to be block (rows)*/
+      text-align: left;
+    }
+  }
 
 #ScrollTopButt         /*style of  scroll  to top button */
 {
@@ -132,6 +169,7 @@ section {
     top:0;;
     width: 100%;
     z-index:5;
+    display: block;
    
 }
 
@@ -161,23 +199,8 @@ section {
          
     }
     
-}
-
-@media only screen and (max-width: 600px) {     /*for tablets and phones*/
-                                                  
-    #navbar__list li {
-      display:block;     /*for phones and tablet change list from inline-block(coloums) to be block (rows)*/
-      text-align: center;   
-      
-    }
-    #navbar__list {
-        float:none;
     
-  }
 }
-
-
-
 
 
 section:nth-of-type(even) .landing__container {
@@ -266,7 +289,7 @@ section.your-active-class .landing__container::after {
 
 li.your-active-List-ancor     /*style for active class for nav items which section in viewport */
 {
-    background: rgb(173, 17, 17); ;
+    background: rgb(173, 17, 17); 
 }
 
 
@@ -284,3 +307,8 @@ li.your-active-List-ancor     /*style for active class for nav items which secti
 		           rotate(-360deg);
 	}
 }
+
+
+
+
+

@@ -18,7 +18,7 @@
  * 
 */
 const LandingSections=document.querySelectorAll('section');  /// represent all sections for  page to a variable 
-const ul=document.querySelector('#navbar__list');   ///represent all ul list and save  to a variable 
+const ul=document.querySelector('.navbar_TOP');   ///represent all ul list and save  to a variable 
 const Documentfragment=document.createDocumentFragment();   ///to enhance performance 
 let  Scrollat0 = window.pageYOffset;            //get the Y position AS initall postion which will updata 
 let  scrollTopButt = document.getElementById("ScrollTopButt");    ///get button by id  and save it to avariable 
@@ -58,6 +58,15 @@ function highlightSecList(sec)
     })
 }
 
+function ResponsiveNav() {
+    var x = document.getElementById("navbar__list");
+     // console.log(x.className);
+      if (x.className === "navbar_TOP") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar_TOP";
+      }
+    }
 function ScrollToTop()   ///Scroll to top by move to postion x=0,y=0;
 {
    window.scrollTo(0,0);
@@ -104,9 +113,12 @@ ul.appendChild(Documentfragment);
 // Scroll to section on link click
 function ScrollWhenclick(NavLink,element)
 {  
-    NavLink.addEventListener('click', function ScrollThePage()
+    NavLink.addEventListener('click', function ScrollThePage(e)
+
         {   element.classList.add("your-active-class");
-            element.scrollIntoView({bahavior:"smooth"});
+            e.preventDefault();
+            element.scrollIntoView({behavior: "smooth"});
+             
 
         });
 }
@@ -144,8 +156,6 @@ window.addEventListener('scroll', function () {
     })
 })
 })();
-
-
 
 
 
